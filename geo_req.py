@@ -12,7 +12,6 @@ def req(chat_id, bot):
             ]
         ],
         resize_keyboard=True,
-        one_time_keyboard=True,
     )
     bot.sendMessage(
         chat_id,

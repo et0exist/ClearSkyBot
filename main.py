@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import telepot
 import new_user
 import geo_rcv
