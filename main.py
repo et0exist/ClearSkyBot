@@ -25,7 +25,10 @@ def handle(msg):
         sat_req.req(chat_id, bot)
 
 
-bot = telepot.Bot('520748932:AAECql5-CE6lLqzo09uzoiwTUiOaaWo4SmY')
+with open('ShootingStarsBot_token') as f:
+    token = f.read()
+
+bot = telepot.Bot(token)
 bot.message_loop(handle)
 print('Listening ...')
 while 1:
