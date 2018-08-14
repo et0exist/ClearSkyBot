@@ -25,7 +25,7 @@ def handle(msg):
         sat_req.req(chat_id, bot)
 
 
-with open('ShootingStarsBot_token') as f:
+with open('ClearSkyBot_token') as f:
     token = f.read()
 
 bot = telepot.Bot(token)
