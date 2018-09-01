@@ -1,7 +1,7 @@
 import new_user
 import keyboard_buttons
-import geo_response
-import sat_request
+import geolocation_response
+import satellites_request
 from telepot.namedtuple import ReplyKeyboardMarkup, ReplyKeyboardRemove
 
 
@@ -33,7 +33,7 @@ class Parser:
             geo_request(chat_id, bot)
 
         def to_geo_response(chat_id, msg, bot):
-            geo_response.add(chat_id, msg)
+            geolocation_response.add(chat_id, msg)
             kb_remove = ReplyKeyboardRemove()
             bot.sendMessage(
                 chat_id,
@@ -54,7 +54,7 @@ class Parser:
             )
 
         def to_sat_request(chat_id, msg):
-            return sat_request.req(chat_id, msg)
+            return satellites_request.req(chat_id, msg)
 
         def to_weather_request(chat_id, msg):
             pass

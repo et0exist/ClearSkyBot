@@ -1,6 +1,6 @@
 import requests
 
-with open('API_key') as key:
+with open('satellites_API_key') as key:
     api_key = key.read()
 base_url = 'https://www.n2yo.com/rest/v1/satellite/'
 

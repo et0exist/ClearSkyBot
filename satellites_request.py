@@ -1,5 +1,5 @@
 import shelve
-import API
+import satellites_API
 
 
 def req(chat_id, msg):
@@ -11,7 +11,7 @@ def req(chat_id, msg):
     days = 20
     min_visibility = 300
 
-    passes = API.get_visual_passes(
+    passes = satellites_API.get_visual_passes(
         norad_id,
         user['location']['latitude'],
         user['location']['longitude'],
