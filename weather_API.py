@@ -6,7 +6,7 @@ base_url = 'https://api.weather.yandex.ru/v1/'
 url = base_url + 'forecast'
 
 
-def req(lat, lon):
+def get_weather(lat, lon):
     weather = requests.get(
         url,
         params={

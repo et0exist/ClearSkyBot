@@ -7,7 +7,6 @@ from telepot.namedtuple import ReplyKeyboardMarkup, ReplyKeyboardRemove
 
 
 class Parser:
-    # Все методы класса не являются лишними, т.к. в них еще будет обработчик исключеий
     def __init__(self, chat_id, content_type, msg, bot):
         self.chat_id = chat_id
         self.content_type = content_type
@@ -25,7 +24,8 @@ class Parser:
 
             bot.sendMessage(
                 chat_id,
-                'Для определения информации о пролетах для вашей местности, необходимо знать ее геолокацию.',
+                'Для получения интересующей вас информации, необходимо знать'
+                ' вашу геолокацию.',
                 reply_markup=kb_geo_req,
             )
 
@@ -35,22 +35,24 @@ class Parser:
 
         def to_geo_response(chat_id, msg, bot):
             geolocation_response.add(chat_id, msg)
-            kb_remove = ReplyKeyboardRemove()
-            bot.sendMessage(
-                chat_id,
-                text='Координаты обновлены.',
-                reply_markup=kb_remove,
-            )
+            # kb_remove = ReplyKeyboardRemove()
+            # bot.sendMessage(
+            #     chat_id,
+            #     text='Координаты обновлены.',
+            #     reply_markup=kb_remove,
+            # )
 
             kb_sat_req = ReplyKeyboardMarkup(
                 keyboard=[
                     [keyboard_buttons.send_sat],
-                    [keyboard_buttons.update_geo]],
+                    [keyboard_buttons.send_weather],
+                    [keyboard_buttons.update_geo],
+                ],
                 resize_keyboard=True,
             )
             bot.sendMessage(
                 chat_id,
-                text='Теперь вы можете получить информацию о предстоящих пролетах ярких спутников.',
+                text='Координаты обновлены.',
                 reply_markup=kb_sat_req,
             )
 

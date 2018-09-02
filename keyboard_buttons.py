@@ -13,3 +13,7 @@ update_geo = KeyboardButton(
 send_sat = KeyboardButton(
     text='Получить информацию о пролетах',
 )
+
+send_weather = KeyboardButton(
+    text='Получить информацию о погоде',
+)
