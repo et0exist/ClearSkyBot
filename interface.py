@@ -2,6 +2,7 @@ import new_user
 import keyboard_buttons
 import geolocation_response
 import satellites_request
+import weather_request
 from telepot.namedtuple import ReplyKeyboardMarkup, ReplyKeyboardRemove
 
 
@@ -57,7 +58,7 @@ class Parser:
             return satellites_request.req(chat_id, msg)
 
         def to_weather_request(chat_id, msg):
-            pass
+            return weather_request.req(chat_id, msg)
 
         parse_dict = {
             'Получить информацию о пролетах': to_sat_request,

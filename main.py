@@ -3,7 +3,7 @@ import interface
 import telepot
 import time
 
-with open('ClearSkyBot_token') as f:
+with open('SkyGemBot_token') as f:
     token = f.read()
 bot = telepot.Bot(token)
 
