@@ -6,12 +6,12 @@ base_url = 'https://api.weather.yandex.ru/v1/'
 url = base_url + 'forecast'
 
 
-def get_weather(lat, lon):
+def get_weather(latitude, longitude):
     weather = requests.get(
         url,
         params={
-            'lat': lat,
-            'lon': lon,
+            'lat': latitude,
+            'lon': longitude,
         },
         headers={
             'X-Yandex-API-Key': api_key,

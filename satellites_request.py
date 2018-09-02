@@ -1,5 +1,6 @@
 import shelve
 import satellites_API
+import time_converter
 
 
 def req(chat_id, msg):
@@ -18,9 +19,15 @@ def req(chat_id, msg):
         min_visibility,
     )
 
-    return 'Ближайший пролет произойдет {} в направлении азимута {}°,' \
-           ' с высотой над горизонтом {}°'.format(
-        passes['passes'][0]['startUTC'],
-        passes['passes'][0]['startAz'],
-        passes['passes'][0]['startEl'],
+    format_string = 'Ближайший пролет произойдет {startUTC} в направлении ' \
+                    'азимута {startAz}°, с высотой над горизонтом {startEl}°'
+
+    return format_string.format(
+        startUTC=time_converter.utc_to_local(
+            utc_unix=passes['passes'][0]['startUTC'],
+            latitude=user['location']['latitude'],
+            longitude=user['location']['longitude'],
+        ),
+        startAz=passes['passes'][0]['startAz'],
+        startEl=passes['passes'][0]['startEl'],
     )
